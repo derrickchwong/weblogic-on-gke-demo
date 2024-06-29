@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    weblogic-operator: enabled
+  name: sample-domain1-ns
+---
+apiVersion: "weblogic.oracle/v9"
+kind: Domain
+metadata:
+  name: sample-domain1
+  namespace: sample-domain1-ns
+  labels:
+    weblogic.domainUID: sample-domain1
+spec:
+  domainHomeSourceType: FromModel
+  domainHome: /u01/domains/sample-domain1
+  image: us-central1-docker.pkg.dev/m2c-demo/container/weblogic-demo-app
+  imagePullPolicy: IfNotPresent
+  webLogicCredentialsSecret: 
+    name: sample-domain1-weblogic-credentials
+  includeServerOutInPodLog: true
+  serverStartPolicy: IfNeeded
+
+  serverPod:
+    env:
+    - name: CUSTOM_DOMAIN_NAME
+      value: "domain1"
+    - name: JAVA_OPTIONS
+      value: "-Dweblogic.StdoutDebugEnabled=false"
+    - name: USER_MEM_ARGS
+      value: "-Djava.security.egd=file:/dev/./urandom -Xms256m -Xmx512m "
+    resources:
+      requests:
+        cpu: "1000m"
+        memory: "1Gi"
+  replicas: 1
+  clusters:
+  - name: sample-domain1-cluster-1
+  restartVersion: '1'
+  introspectVersion: '1'
+  configuration:
+    model:
+      domainType: WLS
+      runtimeEncryptionSecret: sample-domain1-runtime-encryption-secret
+---
+apiVersion: "weblogic.oracle/v1"
+kind: Cluster
+metadata:
+  name: sample-domain1-cluster-1
+  namespace: sample-domain1-ns
+  labels:
+    weblogic.domainUID: sample-domain1
+spec:
+  clusterName: cluster-1
+  replicas: 2
