@@ -19,11 +19,11 @@ steps:
       --wdtModelOnly \
       --wdtDomainType WLS \
       --chown oracle:root
+
 # - name: "us-central1-docker.pkg.dev/m2c-demo/container/witwdt:v2"
 #   id: skaffold-build
 #   entrypoint: skaffold
 #   args: ['build', '--file-output=/workspace/skaffold-output.json', '-v', 'trace', '--push']
-
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   id: create-release
