@@ -33,7 +33,7 @@ steps:
   - '--region'
   - 'us-central1'
   - '--from-k8s-manifest'
-  - 'k8s/kustomization.yaml'
+  - 'k8s/domain.yaml'
 
 images:
   - us-central1-docker.pkg.dev/m2c-demo/container/weblogic-demo-app:v1
