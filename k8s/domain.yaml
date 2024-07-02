@@ -38,7 +38,7 @@ spec:
   domainHomeSourceType: FromModel
   domainHome: /u01/domains/sample-domain1
   image: us-central1-docker.pkg.dev/m2c-demo/container/weblogic-demo-app:v1
-  imagePullPolicy: IfNotPresent
+  imagePullPolicy: Always
   webLogicCredentialsSecret: 
     name: sample-domain1-weblogic-credentials
   includeServerOutInPodLog: true

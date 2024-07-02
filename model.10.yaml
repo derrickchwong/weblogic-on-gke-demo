@@ -29,7 +29,7 @@ topology:
 appDeployments:
     Application:
         myapp:
-            SourcePath: 'deployment/applications/myapp-v1'
+            SourcePath: 'wlsdeploy/applications/myapp-v1'
             ModuleType: ear
             Target: 'cluster-1'
 
