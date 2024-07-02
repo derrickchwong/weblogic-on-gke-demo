@@ -4,27 +4,27 @@ metadata:
   labels:
     weblogic-operator: enabled
   name: sample-domain1-ns
----
-apiVersion: v1
-data:
-  username: d2VibG9naWMK
-  password: U2VjcmV0MTIzNDU2Cg==
-kind: Secret
-metadata:
-  labels:
-    weblogic.domainUID: sample-domain1
-  name: sample-domain1-weblogic-credentials
-  namespace: sample-domain1-ns
----
-apiVersion: v1
-data:
-  password: U2VjcmV0MTIzNDU2Cg==
-kind: Secret
-metadata:
-  labels:
-    weblogic.domainUID: sample-domain1
-  name: sample-domain1-runtime-encryption-secret
-  namespace: sample-domain1-ns
+# ---
+# apiVersion: v1
+# data:
+#   username: d2VibG9naWMK
+#   password: U2VjcmV0MTIzNDU2Cg==
+# kind: Secret
+# metadata:
+#   labels:
+#     weblogic.domainUID: sample-domain1
+#   name: sample-domain1-weblogic-credentials
+#   namespace: sample-domain1-ns
+# ---
+# apiVersion: v1
+# data:
+#   password: U2VjcmV0MTIzNDU2Cg==
+# kind: Secret
+# metadata:
+#   labels:
+#     weblogic.domainUID: sample-domain1
+#   name: sample-domain1-runtime-encryption-secret
+#   namespace: sample-domain1-ns
 
 ---
 apiVersion: "weblogic.oracle/v9"
