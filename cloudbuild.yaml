@@ -8,7 +8,7 @@ steps:
       --version latest \
       --path /tools/weblogic-deploy.zip
     
-    zip -r archive.zip applications config
+    zip -r archive.zip deployment
     
     /tools/imagetool/bin/imagetool.sh update \
       --tag us-central1-docker.pkg.dev/m2c-demo/container/weblogic-demo-app:v1 \
