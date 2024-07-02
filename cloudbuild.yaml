@@ -3,6 +3,8 @@ steps:
   script: |
     #!/usr/bin/env bash
 
+    /tools/imagetool/bin/imagetool.sh cache deleteEntry --key wdt_latest
+    
     /tools/imagetool/bin/imagetool.sh cache addInstaller \
       --type wdt \
       --version latest \
