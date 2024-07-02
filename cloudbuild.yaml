@@ -9,19 +9,15 @@ steps:
       --type wdt \
       --version latest \
       --path /tools/weblogic-deploy.zip
-    
-    pwd 
-
-    ls -al . 
-    
-    zip -r archive.zip deployment
+        
+    zip -r /workspace/archive.zip /workspace/deployment
     
     /tools/imagetool/bin/imagetool.sh update \
       --tag us-central1-docker.pkg.dev/m2c-demo/container/weblogic-demo-app:v1 \
       --fromImage us-central1-docker.pkg.dev/m2c-demo/container/weblogic:12.2.1.4  \
-      --wdtModel model.10.yaml \
-      --wdtVariables model.10.properties \
-      --wdtArchive archive.zip \
+      --wdtModel /workspace/model.10.yaml \
+      --wdtVariables /workspace/model.10.properties \
+      --wdtArchive /workspace/archive.zip \
       --wdtModelOnly \
       --wdtDomainType WLS \
       --chown oracle:root
