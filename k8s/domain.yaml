@@ -8,7 +8,7 @@ metadata:
 apiVersion: v1
 data:
   username: d2VibG9naWMK
-  password: c2VjcmV0MTIzNDUK
+  password: U2VjcmV0MTIzNDU2Cg==
 kind: Secret
 metadata:
   labels:
@@ -18,7 +18,7 @@ metadata:
 ---
 apiVersion: v1
 data:
-  password: c2VjcmV0MTIzNDUK
+  password: U2VjcmV0MTIzNDU2Cg==
 kind: Secret
 metadata:
   labels:
