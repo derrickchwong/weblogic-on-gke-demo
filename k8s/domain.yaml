@@ -65,6 +65,37 @@ spec:
     model:
       domainType: WLS
       runtimeEncryptionSecret: sample-domain1-runtime-encryption-secret
+
+  monitoringExporter:
+    configuration:
+      metricsNameSnakeCase: true
+      domainQualifier: true
+      queries:
+      - key: name
+        keyName: server
+        applicationRuntimes:
+          key: name
+          keyName: app
+          componentRuntimes:
+            type: WebAppComponentRuntime
+            prefix: webapp_config_
+            key: name
+            values: [deploymentState, contextRoot, sourceInfo, openSessionsHighCount]
+            servlets:
+              prefix: weblogic_servlet_
+              key: servletName
+              values: [invocationTotalCount, servletPath, executionTimeAverage, executionTimeHigh, executionTimeLow, executionTimeTotal]
+          workManagerRuntimes:
+            prefix: workmanager_
+            key: applicationName
+        JVMRuntime:
+          prefix: jvm_
+          key: name
+          values: [heapFreeCurrent, heapFreePercent, heapSizeCurrent]
+        threadPoolRuntime:
+          key: name
+          keyName: app
+          values: throughput
 ---
 apiVersion: "weblogic.oracle/v1"
 kind: Cluster
